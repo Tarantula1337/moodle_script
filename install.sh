@@ -7,7 +7,7 @@ if (($EUID != 0)); then
 fi
 
 # install needed packages
-apt install curl
+apt install curl -y
 
 # install php7.4 repository
 curl -sSL https://packages.sury.org/php/README.txt | bash -x
@@ -16,4 +16,4 @@ curl -sSL https://packages.sury.org/php/README.txt | bash -x
 apt update
 
 # install moodle dependencies
-apt install php7.4 php7.4-xml php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-curl php7.4-zip php7.4-gd php7.4-intl
+apt install php7.4 php7.4-xml php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-curl php7.4-zip php7.4-gd php7.4-intl -y
