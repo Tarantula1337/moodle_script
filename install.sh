@@ -31,4 +31,4 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash
 apt update
 apt install mariadb-server mariadb-client mariadb-backup -y
 
-echo $dbtype $dbpass $dbuser $dbpass
+echo $dbtype $dbname $dbuser $dbpass
