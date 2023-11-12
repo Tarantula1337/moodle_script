@@ -31,4 +31,17 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash
 apt update
 apt install mariadb-server mariadb-client mariadb-backup -y
 
+# initialize mariadb with the setupdb script
+bash ./setupdb.sh
+
+# create database
+mysql -e "CREATE DATABASE IF NOT EXISTS $dbname"
+
+# create database user and grant access
+mysql -e "CREATE USER IF NOT EXISTS '$dbuser'@'localhost' IDENTIFIED BY '$dbpass'"
+mysql -e "GRANT ALL PRIVILEGES ON $dbname.* to '$dbuser'@'localhost'"
+
+# apply changes
+mysql -e "FLUSH PRIVILEGES"
+
 echo $dbtype $dbname $dbuser $dbpass
