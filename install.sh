@@ -44,4 +44,9 @@ mysql -e "GRANT ALL PRIVILEGES ON $dbname.* to '$dbuser'@'localhost'"
 # apply changes
 mysql -e "FLUSH PRIVILEGES"
 
-echo $dbtype $dbname $dbuser $dbpass
+# import sql-dump
+mysql -u $dbuser -p $dbname <moodledb.sql
+
+# move data folders to their respective places
+mv ./moodledata /var/www/moodledata
+mv ./moodle /var/www/html/moodle
